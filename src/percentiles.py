@@ -1,8 +1,8 @@
 import math
-from typing import Callable, Iterable
+from typing import Iterable
 
 
-def percentile(N: Iterable, percent: int, key: Callable = lambda x: x):
+def percentile(N: Iterable, percent: int):
     """
     Find the percentile of a list of values.
     Stolen from http://code.activestate.com/recipes/511478-finding-the-percentile-of-the-values/
@@ -13,18 +13,16 @@ def percentile(N: Iterable, percent: int, key: Callable = lambda x: x):
     if not (0 < percent < 100 and type(percent) == int):
         raise ValueError('percent parameter must be integer from 0 to 100')
 
-    percent /= 100
-
     N.sort()
 
-    k = (len(N) - 1) * percent
-    f = math.floor(k)
-    c = math.ceil(k)
+    k = (len(N) - 1) * percent / 100
+    prev_index = math.floor(k)
+    next_index = math.ceil(k)
 
-    if f == c:
-        return key(N[int(k)])
+    if prev_index == next_index:
+        return N[int(k)]
 
-    d0 = key(N[int(f)]) * (c - k)
-    d1 = key(N[int(c)]) * (k - f)
+    d0 = N[prev_index] * (next_index - k)
+    d1 = N[next_index] * (k - prev_index)
 
     return d0 + d1
