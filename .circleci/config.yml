@@ -1,4 +1,6 @@
-version: 2
+version: 2.1
+orbs:
+  codecov: codecov/codecov@1.0.2
 defaults: &defaults
   docker:
     - image: circleci/python:3.6
@@ -48,6 +50,9 @@ jobs:
           command: |
             . venv/bin/activate
             tox
+
+      - codecov/upload:
+          file: {{ coverage_report_filepath }}
 
   deploy:
     <<: *defaults
