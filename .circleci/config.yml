@@ -20,24 +20,21 @@ jobs:
             pip install -r requirements.txt
 
       - save_cache:
+          key: deps-{{ checksum "requirements.txt" }}
           paths:
             - "venv"
-          key: deps-{{ checksum "requirements.txt" }}
 
       - run:
           name: run flake8
           command: |
             . venv/bin/activate
-            cd src && flake8
+            flake8 src/
+            flake8 test/
 
       - persist_to_workspace:
           root: .
           paths:
-            - ".git"
-            - "venv"
-            - "src"
-            - ".deploy"
-            - ".circleci"
+            - .
 
   unittest:
     <<: *defaults
@@ -45,9 +42,6 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-
-      - restore_cache:
-          key: deps-{{ checksum "requirements.txt" }}
 
       - run:
           name: run tests
@@ -60,9 +54,6 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-
-      - restore_cache:
-          key: deps-{{ checksum "requirements.txt" }}
 
       - run:
           name: init .pypirc
