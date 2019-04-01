@@ -52,7 +52,7 @@ jobs:
             tox
 
       - codecov/upload:
-          file: {{ coverage_report_filepath }}
+          file: cov.xml
 
   deploy:
     <<: *defaults
