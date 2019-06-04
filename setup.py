@@ -12,7 +12,7 @@ setup(
     author="Vladimir Seregin",
     author_email="31631@rambler.ru",
     license="MIT",
-    packages=find_packages(),
+    packages=find_packages(where='src'),
     install_requires=[],
     setup_requires=[
         'setuptools_scm',
