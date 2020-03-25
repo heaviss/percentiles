@@ -13,7 +13,7 @@ def percentile(N: Iterable, percent: int):
     if not (0 < percent < 100 and type(percent) == int):
         raise ValueError('percent parameter must be integer from 0 to 100')
 
-    N.sort()
+    N = sorted(N)
 
     k = (len(N) - 1) * percent / 100
     prev_index = math.floor(k)

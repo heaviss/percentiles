@@ -2,7 +2,7 @@ from functools import partial
 
 import pytest
 
-from src.percentiles import percentile
+from percentiles import percentile
 
 
 percentile_75 = partial(percentile, percent=75)
