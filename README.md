@@ -1,4 +1,4 @@
-# Find x-th percentile of sequence without numpy 
+# Find x-th percentile of a sequence without numpy 
 
 [![codecov](https://codecov.io/gh/heaviss/percentiles/branch/master/graph/badge.svg)](https://codecov.io/gh/heaviss/percentiles)
 [![CircleCI](https://circleci.com/gh/heaviss/percentiles.svg?style=svg)](https://circleci.com/gh/heaviss/percentiles)
@@ -11,7 +11,16 @@ pip install percentiles
 ```
 
 ## Use
-```
-todo
+```pycon
+>>> import percentiles
+>>> percentiles.percentile([100, 120, 130, 1000], 75)
+347.5
+>>> from numpy import percentile
+>>> percentile([100, 120, 130, 1000], 75)
+347.5
+
 ```
 
+## Credits
+
+Original code was posted on http://code.activestate.com/recipes/511478-finding-the-percentile-of-the-values/
