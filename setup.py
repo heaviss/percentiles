@@ -1,4 +1,4 @@
-from setuptools import find_packages, setup
+from setuptools import setup
 
 with open('README.md', 'r') as fh:
     long_description = fh.read()
@@ -12,7 +12,7 @@ setup(
     author="Vladimir Seregin",
     author_email="31631@rambler.ru",
     license="MIT",
-    packages=find_packages(where='percentiles'),
+    packages=["percentiles"],
     install_requires=[],
     setup_requires=[
         'setuptools_scm',
