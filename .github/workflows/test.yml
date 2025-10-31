@@ -31,6 +31,9 @@ jobs:
     - name: Lint
       run: |
         uv run ruff check
+    - name: Check types
+      run: |
+        uv run mypy percentiles/
     - name: Test
       run: |
         uv run pytest test --cov --cov-branch --cov-report xml:cov.xml
