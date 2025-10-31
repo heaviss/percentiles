@@ -33,4 +33,4 @@ jobs:
         uv run ruff check
     - name: Test
       run: |
-        uv run pytest test --cov --cov-report --cov-branch xml:cov.xml
+        uv run pytest test --cov --cov-branch --cov-report xml:cov.xml
