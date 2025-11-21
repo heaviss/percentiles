@@ -1,0 +1,46 @@
+[project]
+name = "percentiles"
+version = "0.2.3"
+description="Get percentile of sequence without numpy"
+authors=[{name = "Vladimir Seregin"}]
+dependencies = []
+requires-python = ">=3.11"
+keywords=["percentile", "statistics"]
+classifiers=[
+    "Programming Language :: Python :: 2.7",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+readme = "README.md"
+license = "Unlicense"
+license-files = ["LICEN[CS]E.*"]
+
+[project.urls]
+Homepage = "https://github.com/heaviss/percentiles"
+
+[tool.uv]
+package = true
+
+[dependency-groups]
+dev = [
+    "mypy>=1.18.2",
+    "numpy>=2.3.4",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "ruff>=0.14.3",
+]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "test",
+]
+
+[tool.ruff]
+line-length = 120
+
+[tool.mypy]
+ignore_missing_imports = true
+strict = true
+strict_bytes = true
+local_partial_types = true
+warn_unreachable = true
