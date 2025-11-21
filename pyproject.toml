@@ -1,6 +1,6 @@
 [project]
 name = "percentiles"
-version = "0.2.3"
+version = "1.0.0"
 description="Get percentile of sequence without numpy"
 authors=[{name = "Vladimir Seregin"}]
 dependencies = []
